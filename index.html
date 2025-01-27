@@ -16,18 +16,24 @@
     <main class="flex flex-col justify-center items-center h-screen">
         <h1 class="text-3xl font-bold underline uppercase">API Geo Adresse</h1>
         <div class="flex gap-2 w-full p-10">
+            <!-- Input pour le code postal avec l'id codepostal -->
             <input class="border border-gray-400 p-2 rounded w-1/2" id="codepostal" name="codepostal"
                 placeholder="Saisir un code postal..." type="text">
+            <!-- Select pour stocker par la suite les options de villes récupérer suite au code postal -->
             <select class="border border-gray-400 p-2 rounded w-1/2 cursor-pointer" id="ville" name="ville">
             </select>
         </div>
+        <!-- Div pour afficher la carte leaflet -->
         <div id="map" class=""></div>
     </main>
+
+    <!-- Script tailwind CSS -->
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <!-- Script -->
     <script src="js/script.js"></script>
-
 </body>
 
 </html>
