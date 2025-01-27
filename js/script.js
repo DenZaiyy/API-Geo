@@ -24,25 +24,27 @@ inputCP.addEventListener("input", () => {
                 option.value = `${ville.code}`;
                 option.innerHTML = `${ville.nom}`;
                 selectVille.appendChild(option);
+                L.marker([
+                    ville.centre.coordinates[1],
+                    ville.centre.coordinates[0],
+                ])
+                    .addTo(map)
+                    .bindPopup(ville.nom);
                 coordinates.push({
                     code: ville.code,
                     name: ville.nom,
-                    lat: ville.centre.coordinates[0],
-                    lng: ville.centre.coordinates[1],
+                    lat: ville.centre.coordinates[1],
+                    lng: ville.centre.coordinates[0],
                 });
             });
         });
-});
-
-coordinates.forEach((ville) => {
-    L.marker([ville.lng, ville.lat]).addTo(map);
 });
 
 selectVille.addEventListener("change", () => {
     let value = selectVille.value;
     coordinates.forEach((ville) => {
         if (ville.code === value) {
-            map.setView([ville.lng, ville.lat], 14);
+            map.setView([ville.lat, ville.lng], 14); // Inversé (latitude, longitude)
         }
     });
 });
